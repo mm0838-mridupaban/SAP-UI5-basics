@@ -1,0 +1,145 @@
+<mvc:View
+    controllerName="project2.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <VBox id="ll">
+                <HBox id="hbox1">
+                    <Label
+                        id="language"
+                        text="The selected language is"
+                    />
+                    <Text
+                        id="currentLanguage"
+                        text="{i18n>preferedLanguage}"
+                    />
+                </HBox>
+                <Label
+                    id="yy"
+                    text="Name:"
+                />
+                <Input
+                    id="nameInput"
+                    value="{/name}"
+                />
+
+                <Label
+                    id="yy2"
+                    text="Gender:"
+                />
+                <HBox id="Gender">
+                    <RadioButtonGroup
+                        id="genderGroup"
+                        columns="2"
+                    >
+                        <buttons>
+                            <RadioButton
+                                id="male"
+                                text="Male"
+                            />
+                            <RadioButton
+                                id="female"
+                                text="Female"
+                            />
+                        </buttons>
+                    </RadioButtonGroup>
+                </HBox>
+
+                <Label
+                    id="yy3"
+                    text="Country:"
+                />
+
+                <!-- combo box with hardcoded data -->
+                <Label
+                    text="combo box with hard coded data"
+                    id="combo1"
+                />
+
+                <ComboBox id="box0">
+                    <items>
+                        <core:Item
+                            key="item-1-key"
+                            text="Item 1 Text"
+                            id="item0"
+                        />
+                        <core:Item
+                            key="item-2-key"
+                            text="Item 2 Text"
+                            id="item1"
+                        />
+                    </items>
+                </ComboBox>
+
+                <Button
+                    id="submitbtn"
+                    text="Submit"
+                    press="onSubmit"
+                />
+
+                <Input
+                    id="countryyy"
+                    value="{/selectedCountry}"
+                />
+                <Input
+                    id="countryy"
+                    value="99"
+                />
+
+                <!-- combo box with imported data from controllers -->
+
+                <Label
+                    text="combo box with imported data from controllers"
+                    id="combo2"
+                />
+                <ComboBox
+                    id="countriescombo"
+                    items="{
+					path: '/countries',
+					sorter: { path: 'text' }
+				}"
+                >
+                    <core:Item
+                        key="{key}"
+                        text="{text}"
+                        id="country"
+                    />
+                </ComboBox>
+
+                <!-- combo box with imported data from model -->
+
+                <Label
+                    text="combo box with imported data from model"
+                    id="combo3"
+                />
+                <ComboBox
+                    id="countriescombo3"
+                    items="{
+					path: 'mMainModel>/country',
+					sorter: { path: 'text' }
+				}"
+                >
+                    <core:Item
+                        key="{mMainModel>Key}"
+                        text="{mMainModel>Name}"
+                        id="country3"
+                    />
+                </ComboBox>
+            </VBox>
+        </content>
+
+        <content>
+            <mvc:XMLView
+                id="view3Viewer"
+                viewName="project2.view.View3"
+            />
+        </content>
+    </Page>
+</mvc:View>

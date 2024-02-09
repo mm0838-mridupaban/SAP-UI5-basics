@@ -1,0 +1,24 @@
+<mvc:View
+    controllerName="project2.controller.View3"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Panel id="page2">
+        <content>
+            <Text
+                text="Hello I am View 3, the next gen"
+                id="text1_View3"
+            />
+            <Button
+                id="helloDialogButton"
+                text="{i18n>openDialogButtonText}"
+                press=".onOpenDialog"
+                class="sapUiSmallMarginEnd"
+            />
+
+            <mvc:XMLView viewName="project2.view.InvoiceList" id="listId"/>
+        </content>
+    </Panel>
+</mvc:View>

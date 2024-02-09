@@ -1,11 +1,20 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/ui/core/Fragment"],
+  ["sap/ui/core/mvc/Controller", 
+  "sap/ui/core/Fragment",
+  "sap/ui/model/json/JSONModel"
+],
 
-  function (Controller, Fragment) {
+  function (Controller, Fragment,JSONModel) {
     "use strict";
 
     return Controller.extend("project2.controller.View3", {
-      onInit: function () {},
+      onInit: function () {
+
+        const oViewModel = new JSONModel({
+            currency: "EUR"
+        });
+        this.getView().setModel(oViewModel, "view");
+      },
 
       onOpenDialog: function (oInvoice) {
         console.log("oInvoice", oInvoice);
